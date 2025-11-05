@@ -60,3 +60,12 @@ A full-stack Django web app where users can browse, create, edit, and delete rec
 
 ---
 
+## Website Goals and Objectives
+- Provide a reliable CRUD interface backed by a relational database.
+- Meet accessibility guidelines (semantic HTML, ARIA where appropriate, colour contrast).
+- Use clean project structure, version control, and professional documentation.
+- Deploy to a cloud platform with DEBUG off and secrets protected.
+
+---
+
+
