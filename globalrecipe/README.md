@@ -68,4 +68,28 @@ A full-stack Django web app where users can browse, create, edit, and delete rec
 
 ---
 
+## Wireframes
+
+---
+
+## Design Choices
+
+### Typography
+- Headings: **Inter** (or Bootstrap default system UI stack).  
+- Body: **System UI** for performance and readability.
+
+### Colour Scheme
+- Primary: `#198754` (Bootstrap “success” tone)  
+- Secondary: `#0d6efd`  
+- Background: `#ffffff`  
+- Text: `#212529` 
+
+### Media
+- Recipe images uploaded by users. Images are validated for type/size and stored in `/media/recipes/`.
+
+### Responsiveness
+- Built with Bootstrap’s grid/utilities.  
+- All pages tested at common breakpoints: 320px, 768px, 1024px, 1440px.
+
+---
 
