@@ -1,0 +1,38 @@
+#  Global Recipe
+
+A full-stack Django web app where users can browse, create, edit, and delete recipes. Designed for accessibility, responsive UX, and clean data management.
+
+---
+
+## Contents
+- [User Goals](#user-goals)
+- [User Stories](#user-stories)
+- [Website Goals and Objectives](#website-goals-and-objectives)
+- [Wireframes](#wireframes)
+- [Design Choices](#design-choices)
+  - [Typography](#typography)
+  - [Colour Scheme](#colour-scheme)
+  - [Media](#media)
+  - [Responsiveness](#responsiveness)
+- [Features](#features)
+  - [Existing Features](#existing-features)
+  - [Future Enhancements](#future-enhancements)
+- [Data Model](#data-model)
+  - [Entity Relationship Diagram](#entity-relationship-diagram)
+- [Technologies Used](#technologies-used)
+  - [Languages](#languages)
+  - [Libraries & Framework](#libraries--framework)
+  - [Tools](#tools)
+- [Testing](#testing)
+  - [Code Validation](#code-validation)
+  - [Feature Testing](#feature-testing)
+  - [Accessibility Testing](#accessibility-testing)
+  - [Bugs Fixed](#bugs-fixed)
+- [Deployment](#deployment)
+  - [To deploy the project](#to-deploy-the-project)
+  - [To fork the project](#to-fork-the-project)
+  - [To clone the project](#to-clone-the-project)
+- [Security & Environment Variables](#security--environment-variables)
+- [Credits](#credits)
+
+---
