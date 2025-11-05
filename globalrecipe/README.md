@@ -113,4 +113,14 @@ A full-stack Django web app where users can browse, create, edit, and delete rec
 
 ---
 
+## Data Model
+The core entities are **Recipe**, **Ingredient**, and **Step** with `User` as author.
+
+- **Recipe**
+  - `title`, `description`, `image`, `author(FK User)`, `tags`, `cooking_time`, `created_at`
+- **Ingredient**
+  - `recipe(FK)`, `name`, `quantity`
+- **Step**
+  - `recipe(FK)`, `order`, `instruction` (ordered by `order`)
+
 
