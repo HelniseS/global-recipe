@@ -54,3 +54,9 @@ A full-stack Django web app where users can browse, create, edit, and delete rec
 - I can add a recipe so that I can share it with others.
 - I can edit or delete my own recipes so that I can keep them up-to-date.
 - I can see my submitted recipes in one place.
+
+**As an admin**
+- I can manage users and recipes via Django Admin so that I can moderate content.
+
+---
+
