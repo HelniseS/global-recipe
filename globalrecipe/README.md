@@ -93,3 +93,24 @@ A full-stack Django web app where users can browse, create, edit, and delete rec
 
 ---
 
+## Features
+
+### Existing Features
+- Home page with recent recipes and call-to-actions.
+- Recipes list with pagination and basic search (title/tags).
+- Recipe detail page with ingredients, steps, cooking time, and image.
+- Authenticated users can **create**, **update**, and **delete** their own recipes.
+- Django Admin configured with inlines for quick ingredient/step entry.
+- Flash messages for user feedback (create/update/delete success).
+- 404/500 user-friendly error pages (optional).
+
+### Future Enhancements
+- User favourites / ratings.
+- Advanced filters (cuisine, dietary requirements).
+- Image optimization (thumbnails).
+- Comments and moderation workflow.
+- API endpoints for mobile consumption.
+
+---
+
+
