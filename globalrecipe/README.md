@@ -124,3 +124,19 @@ The core entities are **Recipe**, **Ingredient**, and **Step** with `User` as au
   - `recipe(FK)`, `order`, `instruction` (ordered by `order`)
 
 
+## Technologies Used
+
+### Languages
+- Python 3, HTML5, CSS3, JavaScript (Bootstrap components)
+
+### Libraries & Framework
+- Django 5, Bootstrap 5
+
+### Tools
+- VS Code, Git & GitHub
+- (Optional) Draw.io / Figma for wireframes
+- (Optional) Heroku/Render for deployment
+
+---
+
+
