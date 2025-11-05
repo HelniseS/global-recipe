@@ -139,4 +139,22 @@ The core entities are **Recipe**, **Ingredient**, and **Step** with `User` as au
 
 ---
 
+## Testing
 
+### Feature Testing
+
+### Accessibility Testing
+
+### Bugs Fixed
+
+---
+
+## Deployment
+
+### To deploy the project
+**Option A: Heroku (classic for Django)**
+1. Create a Heroku app.  
+2. Add config vars: `SECRET_KEY`, `DISABLE_COLLECTSTATIC=1` (during first deploy).  
+3. Add `Procfile`:
+
+## Credits
