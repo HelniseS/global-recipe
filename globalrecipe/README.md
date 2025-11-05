@@ -36,3 +36,10 @@ A full-stack Django web app where users can browse, create, edit, and delete rec
 - [Credits](#credits)
 
 ---
+
+## User Goals
+- Quickly discover recipes by name, tags, or ingredients.
+- View clear ingredient lists and step-by-step instructions.
+- Submit personal recipes with images.
+- Edit or delete recipes they own.
+- Save time with a clean, mobile-first interface.
