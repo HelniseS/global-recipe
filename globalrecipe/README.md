@@ -43,3 +43,14 @@ A full-stack Django web app where users can browse, create, edit, and delete rec
 - Submit personal recipes with images.
 - Edit or delete recipes they own.
 - Save time with a clean, mobile-first interface.
+
+## User Stories
+**As a visitor**
+- I can browse all recipes so that I can find something to cook.
+- I can search/filter so that I can narrow results quickly.
+- I can view a recipe’s details so that I can follow steps easily.
+
+**As a registered user**
+- I can add a recipe so that I can share it with others.
+- I can edit or delete my own recipes so that I can keep them up-to-date.
+- I can see my submitted recipes in one place.
