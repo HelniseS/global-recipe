@@ -77,7 +77,7 @@ A full-stack Django web app where users can browse, create, edit, and delete rec
 ![Login/Register (Mobile)](docs/wireframes/login-register.png)
 
 ### Desktop Screens
-![Home (Desktop)](docs/wireframes/recipe-list-desktop.png)
+![Home (Desktop)](docs/wireframes/home-desktop.png)
 ![Recipe List (Desktop)](docs/wireframes/recipe-list-desktop.png)
 ![Recipe Detail (Desktop)](docs/wireframes/recipe-detail-desktop.png)
 ![Add Recipe (Desktop)](docs/wireframes/add-recipe.png)
