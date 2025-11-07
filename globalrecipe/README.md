@@ -71,16 +71,17 @@ A full-stack Django web app where users can browse, create, edit, and delete rec
 ## Wireframes
 
 ### Mobile Screens
-![Home (Mobile)](docs/wireframes/Home(Mobile).png)
-![Recipe List (Mobile)](docs/wireframes/RecipeList(Mobile).png)
-![Recipe Detail (Mobile)](docs/wireframes/RecipeDetail(Mobile).png)
-![Login / Register (Mobile)](docs/wireframes/Login-Register(Desktop-Mobile).png)
+![Home (Mobile)](docs/wireframes/home-mobile.png)
+![Recipe List (Mobile)](docs/wireframes/recipe-list-mobile.png)
+![Recipe Detail (Mobile)](docs/wireframes/recipe-detail-mobile.png)
+![Login/Register (Mobile)](docs/wireframes/login-register.png)
 
 ### Desktop Screens
-![Home (Desktop)](docs/wireframes/HomePage(Desktop).png)
-![Recipe List (Desktop)](docs/wireframes/RecipeList(Desktop).png)
-![Recipe Detail (Desktop)](docs/wireframes/RecipeDetail(Desktop).png)
-![Add Recipe (Desktop)](docs/wireframes/AddRecipe(Desktop-Mobile).png)
+![Home (Desktop)](docs/wireframes/recipe-list-desktop.png)
+![Recipe List (Desktop)](docs/wireframes/recipe-list-desktop.png)
+![Recipe Detail (Desktop)](docs/wireframes/recipe-detail-desktop.png)
+![Add Recipe (Desktop)](docs/wireframes/add-recipe.png)
+![Login/Register (Desktop)](docs/wireframes/login-register.png)
 ---
 
 ## Design Choices
