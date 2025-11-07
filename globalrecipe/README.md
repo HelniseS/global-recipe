@@ -70,6 +70,19 @@ A full-stack Django web app where users can browse, create, edit, and delete rec
 
 ## Wireframes
 
+![The original Wireframe](assets/testing/wireframe.orig.png)
+
+#### Mobile
+![Home – ](globalrecipe/docs/wireframes/Home(Mobile).png)  
+![Recipe List – ](globalrecipe/docs/wireframes/RecipeList(Mobile).png)  
+![Recipe Detail – ](globalrecipe/docs/wireframes/RecipeDetail(Mobile).png)
+
+#### Desktop
+![Home – ](globalrecipe/docs/HomePage(Desktop).png)  
+![Recipe List – ](globalrecipe/docs/wireframes/Recipelist(Desktop).png)  
+![Recipe Detail – ](globalrecipe/docs/wireframes/RecipeDetail(Desktop).png)
+![Add Recipe – ](globalrecipe/docs/wireframes/AddRecipe(Desktop-Mobile).png)
+![Login/Register – ](globalrecipe/docs/wireframes/Login-Register(Desktop-Mobile).png)
 ---
 
 ## Design Choices
