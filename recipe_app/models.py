@@ -46,3 +46,12 @@ title = models.CharField(max_length=200)
             base = slugify(self.title)[:60]
             self.slug = base
 
+
+ i = 1
+            while Recipe.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+                self.slug = f"{base}-{i}"
+                i += 1
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
