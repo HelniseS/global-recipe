@@ -38,3 +38,11 @@ title = models.CharField(max_length=200)
     tags = models.ManyToManyField(Tag, blank=True, related_name='recipes')
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['-created_at']
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base = slugify(self.title)[:60]
+            self.slug = base
+
