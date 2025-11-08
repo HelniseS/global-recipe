@@ -62,3 +62,6 @@ class Nutrition(models.Model):
     protein_g = models.DecimalField(max_digits=6, decimal_places=1, default=0)
     carbs_g = models.DecimalField(max_digits=6, decimal_places=1, default=0)
     fat_g = models.DecimalField(max_digits=6, decimal_places=1, default=0)
+
+def __str__(self):
+        return f"Nutrition for {self.recipe.title}"
