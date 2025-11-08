@@ -55,3 +55,10 @@ title = models.CharField(max_length=200)
 
     def __str__(self):
         return self.title
+
+class Nutrition(models.Model):
+    recipe = models.OneToOneField(Recipe, on_delete=models.CASCADE, related_name='nutrition')
+    calories = models.PositiveIntegerField(default=0)
+    protein_g = models.DecimalField(max_digits=6, decimal_places=1, default=0)
+    carbs_g = models.DecimalField(max_digits=6, decimal_places=1, default=0)
+    fat_g = models.DecimalField(max_digits=6, decimal_places=1, default=0)
