@@ -13,3 +13,16 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+
+        class Recipe(models.Model):
+    CATEGORY_CHOICES = [
+        ('african', 'African'),
+        ('asian', 'Asian'),
+        ('european', 'European'),
+        ('american', 'American'),
+        ('vegan', 'Vegan'),
+        ('desserts', 'Desserts'),
+        ('quick', 'Quick'),
+        ('other', 'Other'),
+    ]
+
