@@ -65,3 +65,15 @@ class Nutrition(models.Model):
 
 def __str__(self):
         return f"Nutrition for {self.recipe.title}"
+        
+
+        class Ingredient(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ingredients')
+    text = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ['id']
+
+    def __str__(self):
+        return self.text
+
