@@ -5,3 +5,7 @@ from .models import Recipe, Ingredient, Step, Nutrition, Tag
 class IngredientInline(admin.TabularInline):
     model = Ingredient
     extra = 0
+
+    class StepInline(admin.TabularInline):
+    model = Step
+    extra = 0
