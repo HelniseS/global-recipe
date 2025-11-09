@@ -53,4 +53,15 @@ class RecipeDetailView(DetailView):
     model = Recipe
     context_object_name = "recipe"
 
+class RecipeCreateView(LoginRequiredMixin, View):
+    template_name = "recipe_app/recipe_form.html"
+    success_url = reverse_lazy("recipe_app:recipe_list")
+
+    def get(self, request):
+        return render(request, self.template_name, {
+            "form": RecipeForm(),
+            "nutrition_form": NutritionForm(),
+            "ingredient_formset": IngredientFormSet(),
+            "step_formset": StepFormSet(),
+        })
 
