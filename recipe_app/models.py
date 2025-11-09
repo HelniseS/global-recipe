@@ -65,7 +65,7 @@ class Nutrition(models.Model):
 
 def __str__(self):
         return f"Nutrition for {self.recipe.title}"
-        
+
 
         class Ingredient(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ingredients')
@@ -77,3 +77,14 @@ def __str__(self):
     def __str__(self):
         return self.text
 
+
+class Step(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='steps')
+    order = models.PositiveIntegerField()
+    text = models.TextField()
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return f"Step {self.order}"
