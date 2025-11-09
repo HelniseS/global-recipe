@@ -21,7 +21,8 @@ class HomeView(ListView):
         ctx["tags"] = Tag.objects.all()
         return ctx
 
-     class RecipeListView(ListView):
+
+class RecipeListView(ListView):
     template_name = "recipe_app/recipe_list.html"
     context_object_name = "recipes"
     paginate_by = 12
@@ -47,7 +48,9 @@ class HomeView(ListView):
         ctx["q"] = self.request.GET.get("q", "")
         return ctx
    
-
-
+class RecipeDetailView(DetailView):
+    template_name = "recipe_app/recipe_detail.html"
+    model = Recipe
+    context_object_name = "recipe"
 
 
