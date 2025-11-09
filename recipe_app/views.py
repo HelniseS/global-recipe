@@ -65,3 +65,14 @@ class RecipeCreateView(LoginRequiredMixin, View):
             "step_formset": StepFormSet(),
         })
 
+def post(self, request):
+        form = RecipeForm(request.POST, request.FILES)
+        nutrition_form = NutritionForm(request.POST)
+        ingredient_fs = IngredientFormSet(request.POST)
+        step_fs = StepFormSet(request.POST)
+
+        if all([form.is_valid(), nutrition_form.is_valid(), ingredient_fs.is_valid(), step_fs.is_valid()]):
+            recipe = form.save(commit=False)
+            recipe.author = request.user
+            recipe.save()
+            form.save_m2m()
