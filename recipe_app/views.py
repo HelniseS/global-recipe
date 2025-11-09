@@ -76,3 +76,23 @@ def post(self, request):
             recipe.author = request.user
             recipe.save()
             form.save_m2m()
+
+             # nutrition
+            nutrition = nutrition_form.save(commit=False)
+            nutrition.recipe = recipe
+            nutrition.save()
+
+            # inlines
+            ingredient_fs.instance = recipe
+            ingredient_fs.save()
+            step_fs.instance = recipe
+            step_fs.save()
+
+            return redirect(recipe.get_absolute_url())
+
+        return render(request, self.template_name, {
+            "form": form,
+            "nutrition_form": nutrition_form,
+            "ingredient_formset": ingredient_fs,
+            "step_formset": step_fs,
+        })
