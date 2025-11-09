@@ -1,9 +1,12 @@
+# recipe_app/urls.py
 from django.urls import path
-from django.http import HttpResponse
+from . import views
 
-def home(request):
-    return HttpResponse("Welcome to GlobalRecipe (recipe_app)")
+app_name = "recipe_app"
 
 urlpatterns = [
-    path('', home, name='home'),
+    path('', views.HomeView.as_view(), name='home'),
+    path('recipes/', views.RecipeListView.as_view(), name='recipe_list'),
+    path('recipes/<slug:slug>/', views.RecipeDetailView.as_view(), name='recipe_detail'),
+    path('recipes/add/', views.RecipeCreateView.as_view(), name='recipe_add'),
 ]
