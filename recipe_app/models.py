@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.text import slugify
 
-# Create your models here.
+
 User = get_user_model()
 
 class Tag(models.Model):
@@ -14,8 +14,8 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-        class Recipe(models.Model):
-    CATEGORY_CHOICES = [
+class Recipe(models.Model):
+          CATEGORY_CHOICES = [
         ('african', 'African'),
         ('asian', 'Asian'),
         ('european', 'European'),
@@ -26,7 +26,7 @@ class Tag(models.Model):
         ('other', 'Other'),
     ]
 
-title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, blank=True, max_length=220)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipes')
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='other')
@@ -71,7 +71,7 @@ def __str__(self):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ingredients')
     text = models.CharField(max_length=255)
 
-    class Meta:
+class Meta:
         ordering = ['id']
 
     def __str__(self):
@@ -83,7 +83,7 @@ class Step(models.Model):
     order = models.PositiveIntegerField()
     text = models.TextField()
 
-    class Meta:
+class Meta:
         ordering = ['order']
 
     def __str__(self):
