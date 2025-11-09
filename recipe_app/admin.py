@@ -1,14 +1,16 @@
 from django.contrib import admin
-from .models import Recipe, Ingredient, Step, Nutrition, Tag
+from .models import Recipe, Tag, Ingredient, Step, Nutrition
 
-# Register your models here.
+
 class IngredientInline(admin.TabularInline):
     model = Ingredient
     extra = 0
 
+
 class StepInline(admin.TabularInline):
     model = Step
     extra = 0
+
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
@@ -17,5 +19,13 @@ class RecipeAdmin(admin.ModelAdmin):
     search_fields = ("title", "description")
     prepopulated_fields = {"slug": ("title",)}
     inlines = [IngredientInline, StepInline]
- 
- 
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ("name",)
+
+
+@admin.register(Nutrition)
+class NutritionAdmin(admin.ModelAdmin):
+    list_display = ("recipe", "calories", "protein_g", "carbs_g", "fat_g")
