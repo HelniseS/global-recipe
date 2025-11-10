@@ -11,3 +11,12 @@
       Posted by {{ recipe.author }} · {{ recipe.created_at|date:"M j, Y" }}
     </div>
   </div>
+
+ <div class="col-lg-7">
+    <h1 class="h3">{{ recipe.title }}</h1>
+    <div class="text-muted mb-2">
+      Category: <span class="badge bg-secondary">{{ recipe.get_category_display }}</span>
+      {% for t in recipe.tags.all %}
+        <span class="badge bg-light text-dark border ms-1">{{ t.name }}</span>
+      {% endfor %}
+    </div> 
