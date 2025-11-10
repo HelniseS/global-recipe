@@ -17,6 +17,23 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+  <div id="nav" class="collapse navbar-collapse">
+      <form class="d-flex ms-auto" role="search" action="{% url 'recipe_app:recipe_list' %}">
+        <input class="form-control me-2" type="search" name="q" placeholder="Search recipes…" value="{{ q|default:'' }}">
+        <button class="btn btn-primary">Search</button>
+      </form>
+      
+      <ul class="navbar-nav ms-3">
+        {% if user.is_authenticated %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'recipe_app:recipe_add' %}">Add Recipe</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
 
 
 </body>
