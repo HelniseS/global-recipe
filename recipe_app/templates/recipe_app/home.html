@@ -24,3 +24,13 @@
       </div>
     </a>
   </div>
+
+  {% empty %}
+    <p>No recipes yet.</p>
+  {% endfor %}
+</div>
+
+<div class="text-end mt-3">
+  <a class="btn btn-outline-primary" href="{% url 'recipe_app:recipe_list' %}">Browse all recipes →</a>
+</div>
+{% endblock %}
