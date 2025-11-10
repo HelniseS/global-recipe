@@ -41,3 +41,13 @@
   </div>
 </div>
 
+<div class="row mt-4">
+  <div class="col-lg-6">
+    <h2 class="h5">Ingredients</h2>
+    <ul class="list-group">
+      {% for i in recipe.ingredients.all %}
+      <li class="list-group-item">{{ i.text }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
