@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Home · Global Recipe{% endblock %}
+{% block content %}
+
+<h1 class="h3 mb-3">New & Popular</h1>
+
+<div class="mb-3">
+  <a class="btn btn-sm btn-outline-secondary me-2" href="{% url 'recipe_app:recipe_list' %}">All</a>
+  {% for t in tags %}
+    <a class="btn btn-sm btn-outline-secondary me-2" href="{% url 'recipe_app:recipe_list' %}?tag={{ t.name }}">{{ t.name }}</a>
+  {% endfor %}
+</div>
+
