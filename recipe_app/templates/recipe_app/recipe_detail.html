@@ -20,3 +20,11 @@
         <span class="badge bg-light text-dark border ms-1">{{ t.name }}</span>
       {% endfor %}
     </div> 
+
+    <p>{{ recipe.description|linebreaks }}</p>
+
+    <div class="row g-3">
+      <div class="col-sm-4"><div class="p-3 border rounded"><strong>{{ recipe.cooking_time_min }}</strong> min</div></div>
+      <div class="col-sm-4"><div class="p-3 border rounded"> Servings: <strong>{{ recipe.servings }}</strong></div></div>
+      <div class="col-sm-4"><div class="p-3 border rounded"> Rating: <strong>{{ recipe.rating }}</strong></div></div>
+    </div>
