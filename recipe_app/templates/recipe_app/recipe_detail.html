@@ -51,3 +51,14 @@
     </ul>
   </div>
 
+<div class="col-lg-6">
+    <h2 class="h5">Steps</h2>
+    <ol class="list-group list-group-numbered">
+      {% for s in recipe.steps.all %}
+      <li class="list-group-item">{{ s.text }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+</div>
+
+{% endblock %}
