@@ -28,3 +28,16 @@
       <div class="col-sm-4"><div class="p-3 border rounded"> Servings: <strong>{{ recipe.servings }}</strong></div></div>
       <div class="col-sm-4"><div class="p-3 border rounded"> Rating: <strong>{{ recipe.rating }}</strong></div></div>
     </div>
+
+    {% if recipe.nutrition %}
+    <h2 class="h5 mt-4">Nutrition (per serving)</h2>
+    <ul class="list-inline">
+      <li class="list-inline-item badge bg-success-subtle text-success border">Calories: {{ recipe.nutrition.calories }}</li>
+      <li class="list-inline-item badge bg-primary-subtle text-primary border">Protein: {{ recipe.nutrition.protein_g }} g</li>
+      <li class="list-inline-item badge bg-warning-subtle text-warning border">Carbs: {{ recipe.nutrition.carbs_g }} g</li>
+      <li class="list-inline-item badge bg-danger-subtle text-danger border">Fat: {{ recipe.nutrition.fat_g }} g</li>
+    </ul>
+    {% endif %}
+  </div>
+</div>
+
