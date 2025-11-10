@@ -18,3 +18,15 @@
       {% endfor %}
     </select>
   </div>
+
+   <div class="col-sm-4">
+    <label class="form-label d-block">Tags</label>
+    <div class="d-flex flex-wrap gap-2">
+      <a class="btn btn-sm {% if not active_tag %}btn-primary{% else %}btn-outline-secondary{% endif %}" href="?q={{ q }}&category={{ active_category }}">All</a>
+      {% for t in tags %}
+        <a class="btn btn-sm {% if active_tag == t.name %}btn-primary{% else %}btn-outline-secondary{% endif %}"
+           href="?q={{ q }}&category={{ active_category }}&tag={{ t.name }}">{{ t.name }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</form>
