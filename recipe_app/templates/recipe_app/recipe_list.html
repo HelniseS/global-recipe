@@ -35,7 +35,8 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
   {% for r in page_obj %}
   <div class="col">
-    <a class="card h-100 text-decoration-none text-body" href="{{ r.get_absolute_url }}">
+    <a class="card h-100 text-decoration-none text-body"  href="{% url 'recipe_app:recipe_detail' r.pk %}">
+
       {% if r.image %}
       <img class="card-img-top object-fit-cover" style="height:180px" src="{{ r.image.url }}" alt="{{ r.title }}">
       {% endif %}
