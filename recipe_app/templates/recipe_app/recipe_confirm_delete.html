@@ -1,0 +1,14 @@
+{% extends "recipe_app/base.html" %}
+
+{% block title %}Delete Recipe · GlobalRecipe{% endblock %}
+
+{% block content %}
+<h1 class="h4 mb-3">Delete recipe</h1>
+<p>Are you sure you want to delete <strong>{{ object.title }}</strong>?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Yes, delete</button>
+  <a href="{% url 'recipe_app:recipe_detail' object.pk %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
