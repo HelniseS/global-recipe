@@ -96,3 +96,30 @@ def post(self, request):
             "ingredient_formset": ingredient_fs,
             "step_formset": step_fs,
         })
+
+        class MyRecipesView(LoginRequiredMixin, ListView):
+    model = Recipe
+    template_name = "recipe_app/my_recipes.html"
+    context_object_name = "recipes"
+
+    def get_queryset(self):
+        return Recipe.objects.filter(author=self.request.user)
+
+
+class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Recipe
+    template_name = "recipe_app/recipe_form.html"
+    fields = ["title", "image", "category", "description",
+              "cooking_time_min", "servings", "rating"]
+
+    def test_func(self):
+        return self.get_object().author == self.request.user
+
+
+class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Recipe
+    template_name = "recipe_app/recipe_confirm_delete.html"
+    success_url = reverse_lazy("recipe_app:recipe_list")
+
+    def test_func(self):
+        return self.get_object().author == self.request.user
