@@ -1,5 +1,5 @@
 # recipe_app/views.py
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -97,7 +97,7 @@ def post(self, request):
             "step_formset": step_fs,
         })
 
-        class MyRecipesView(LoginRequiredMixin, ListView):
+class MyRecipesView(LoginRequiredMixin, ListView):
     model = Recipe
     template_name = "recipe_app/my_recipes.html"
     context_object_name = "recipes"
