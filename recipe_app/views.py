@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, View
+from django.views.generic import ListView, DetailView, View, UpdateView, DeleteView
 from .models import Recipe, Tag
 from .forms import RecipeForm, NutritionForm, IngredientFormSet, StepFormSet
 
@@ -103,7 +103,7 @@ class MyRecipesView(LoginRequiredMixin, ListView):
     context_object_name = "recipes"
 
     def get_queryset(self):
-        return Recipe.objects.filter(author=self.request.user)
+        return Recipe.objects.filter(author=self.request.user).order_by("-created_at")
 
 
 class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
