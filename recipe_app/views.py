@@ -82,20 +82,32 @@ def post(self, request):
             nutrition.recipe = recipe
             nutrition.save()
 
-            # inlines
-            ingredient_fs.instance = recipe
-            ingredient_fs.save()
-            step_fs.instance = recipe
-            step_fs.save()
+            # Save ingredients
+            ingredients = ingredient_formset.save(commit=False)
+            for ing in ingredients:
+                ing.recipe = recipe
+                ing.save()
+            for obj in ingredient_formset.deleted_objects:
+                obj.delete()
 
-            return redirect(recipe.get_absolute_url())
+            # Save steps
+            steps = step_formset.save(commit=False)
+            for step in steps:
+                step.recipe = recipe
+                step.save()
+            for obj in step_formset.deleted_objects:
+                obj.delete()
 
+            return redirect(self.success_url)
+
+        # If something is invalid, show the form again with errors
         return render(request, self.template_name, {
             "form": form,
             "nutrition_form": nutrition_form,
-            "ingredient_formset": ingredient_fs,
-            "step_formset": step_fs,
+            "ingredient_formset": ingredient_formset,
+            "step_formset": step_formset,
         })
+
 
 class MyRecipesView(LoginRequiredMixin, ListView):
     model = Recipe
