@@ -58,26 +58,33 @@ class RecipeCreateView(LoginRequiredMixin, View):
     success_url = reverse_lazy("recipe_app:recipe_list")
 
     def get(self, request):
+        form = RecipeForm()
+        nutrition_form = NutritionForm()
+        ingredient_formset = IngredientFormSet()
+        step_formset = StepFormSet()
+
         return render(request, self.template_name, {
-            "form": RecipeForm(),
-            "nutrition_form": NutritionForm(),
-            "ingredient_formset": IngredientFormSet(),
-            "step_formset": StepFormSet(),
+            "form": form,
+            "nutrition_form": nutrition_form,
+            "ingredient_formset": ingredient_formset,
+            "step_formset": step_formset,
         })
 
-def post(self, request):
+    def post(self, request):
         form = RecipeForm(request.POST, request.FILES)
         nutrition_form = NutritionForm(request.POST)
-        ingredient_fs = IngredientFormSet(request.POST)
-        step_fs = StepFormSet(request.POST)
+        ingredient_formset = IngredientFormSet(request.POST)
+        step_formset = StepFormSet(request.POST)
 
-        if all([form.is_valid(), nutrition_form.is_valid(), ingredient_fs.is_valid(), step_fs.is_valid()]):
+        if (form.is_valid() and nutrition_form.is_valid()
+                and ingredient_formset.is_valid() and step_formset.is_valid()):
+
+            # Save main recipe
             recipe = form.save(commit=False)
             recipe.author = request.user
             recipe.save()
-            form.save_m2m()
 
-             # nutrition
+            # Save nutrition info
             nutrition = nutrition_form.save(commit=False)
             nutrition.recipe = recipe
             nutrition.save()
@@ -100,7 +107,7 @@ def post(self, request):
 
             return redirect(self.success_url)
 
-        # If something is invalid, show the form again with errors
+        # If anything is invalid, show the form again with errors
         return render(request, self.template_name, {
             "form": form,
             "nutrition_form": nutrition_form,
