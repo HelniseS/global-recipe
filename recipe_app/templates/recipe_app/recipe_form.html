@@ -12,6 +12,16 @@
 <form method="post" enctype="multipart/form-data" class="vstack gap-4">
   {% csrf_token %}
 
+  {% if form.errors or nutrition_form.errors or ingredient_formset.non_form_errors or step_formset.non_form_errors %}
+    <div class="alert alert-danger">
+      <strong>Please fix the errors below.</strong>
+      {{ form.errors }}
+      {{ nutrition_form.errors }}
+      {{ ingredient_formset.non_form_errors }}
+      {{ step_formset.non_form_errors }}
+    </div>
+  {% endif %}
+
   <section class="card">
     <div class="card-header fw-semibold">Basic Info</div>
     <div class="card-body row g-3">
@@ -50,6 +60,7 @@
 
         <div class="col">
           {{ f.text }}
+          <div class="text-danger small">{{ f.text.errors }}</div>
         </div>
 
         {% if ingredient_formset.can_delete %}
@@ -66,22 +77,41 @@
 
 
   <section class="card">
-    <div class="card-header fw-semibold">Steps</div>
-    <div class="card-body">
-      {{ step_formset.management_form }}
-      {% for f in step_formset %}
-        <div class="row g-2 align-items-center mb-2">
-          <div class="col-md-2">{{ f.order }}</div>
-          <div class="col">{{ f.text }}</div>
-          {% if ingredient_formset.can_delete %}
-            <div class="col-auto form-check">
-              {{ f.DELETE }} <label class="form-check-label">remove</label>
-            </div>
-          {% endif %}
+  <div class="card-header fw-semibold">Steps</div>
+  <div class="card-body">
+    {{ step_formset.management_form }}
+
+    {% for f in step_formset %}
+      <div class="row g-2 align-items-center mb-2">
+        {% for hidden in f.hidden_fields %}
+          {{ hidden }}
+        {% endfor %}
+
+        <div class="col-md-2">
+          {{ f.order }}
+          <div class="text-danger small">
+            {{ f.order.errors }}
+          </div>
         </div>
-      {% endfor %}
-    </div>
-  </section>
+
+        <div class="col">
+          {{ f.text }}
+          <div class="text-danger small">
+            {{ f.text.errors }}
+          </div>
+        </div>
+
+        {% if step_formset.can_delete %}
+          <div class="col-auto form-check">
+            {{ f.DELETE }}
+            <label class="form-check-label">Remove</label>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
 
   <div>
     <button class="btn btn-primary" type="submit">Save Recipe</button>
