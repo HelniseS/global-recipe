@@ -38,21 +38,32 @@
   </section>
 
   <section class="card">
-    <div class="card-header fw-semibold">Ingredients</div>
-    <div class="card-body">
-      {{ ingredient_formset.management_form }}
-      {% for f in ingredient_formset %}
-        <div class="row g-2 align-items-center mb-2">
-          <div class="col">{{ f.text }}</div>
-          {% if f.can_delete %}
-            <div class="col-auto form-check">
-              {{ f.DELETE }} <label class="form-check-label">remove</label>
-            </div>
-          {% endif %}
+  <div class="card-header fw-semibold">Ingredients</div>
+  <div class="card-body">
+    {{ ingredient_formset.management_form }}
+
+    {% for f in ingredient_formset %}
+      <div class="row g-2 align-items-center mb-2">
+        {% for hidden in f.hidden_fields %}
+          {{ hidden }}
+        {% endfor %}
+
+        <div class="col">
+          {{ f.text }}
         </div>
-      {% endfor %}
-    </div>
-  </section>
+
+        {% if ingredient_formset.can_delete %}
+          <div class="col-auto form-check">
+            {{ f.DELETE }}
+            <label class="form-check-label">Remove</label>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+
 
   <section class="card">
     <div class="card-header fw-semibold">Steps</div>
@@ -62,7 +73,7 @@
         <div class="row g-2 align-items-center mb-2">
           <div class="col-md-2">{{ f.order }}</div>
           <div class="col">{{ f.text }}</div>
-          {% if f.can_delete %}
+          {% if ingredient_formset.can_delete %}
             <div class="col-auto form-check">
               {{ f.DELETE }} <label class="form-check-label">remove</label>
             </div>
