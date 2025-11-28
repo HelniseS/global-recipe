@@ -6,7 +6,7 @@ from .models import Recipe, Nutrition, Ingredient, Step
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ["title", "category", "description", "cooking_time_min", "servings", "image", "tags"]
+        fields = ["title", "category", "description", "cooking_time_min", "servings", "image", "rating", "tags"]
 
 class NutritionForm(forms.ModelForm):
     class Meta:
