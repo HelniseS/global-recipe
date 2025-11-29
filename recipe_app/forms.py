@@ -4,9 +4,18 @@ from django.forms import inlineformset_factory
 from .models import Recipe, Nutrition, Ingredient, Step
 
 class RecipeForm(forms.ModelForm):
+    RATING_CHOICES =[
+        (1, "1"),
+        (2, "2"),
+        (3, "3"),
+        (4, "4"),
+        (5, "5"),
+    ]
+    rating = forms.ChoiceField(choices=RATING_CHOICES)
+    
     class Meta:
         model = Recipe
-        fields = ["title", "category", "description", "cooking_time_min", "servings", "image", "rating", "tags"]
+        fields = ["title", "category", "description", "cooking_time_min", "servings", "image", "tags", "rating"]
 
 class NutritionForm(forms.ModelForm):
     class Meta:

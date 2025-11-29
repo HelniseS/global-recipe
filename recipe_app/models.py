@@ -37,7 +37,7 @@ class Recipe(models.Model):
     cooking_time_min = models.PositiveIntegerField(default=0)
     servings = models.PositiveIntegerField(default=1)
     image = models.ImageField(upload_to="recipe_images/", blank=True, null=True)
-    rating = models.DecimalField(max_digits=2, decimal_places=1, default=Decimal("0.0"))
+    rating = models.DecimalField(max_digits=2, decimal_places=1)
     tags = models.ManyToManyField(Tag, blank=True, related_name="recipes")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
