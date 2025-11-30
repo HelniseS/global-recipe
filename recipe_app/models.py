@@ -62,7 +62,7 @@ class Recipe(models.Model):
             self.slug = candidate
         super().save(*args, **kwargs)
 
-        def get_absolute_url(self):
+    def get_absolute_url(self):
         return reverse("recipe_app:recipe_detail", args=[self.pk])
 
 
