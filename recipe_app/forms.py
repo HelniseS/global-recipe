@@ -12,7 +12,7 @@ class RecipeForm(forms.ModelForm):
         (5, "5"),
     ]
     rating = forms.ChoiceField(choices=RATING_CHOICES)
-    
+
     class Meta:
         model = Recipe
         fields = ["title", "category", "description", "cooking_time_min", "servings", "image", "tags", "rating"]
@@ -37,5 +37,5 @@ IngredientFormSet = inlineformset_factory(
 )
 
 StepFormSet = inlineformset_factory(
-    Recipe, Step, form=StepForm, extra=1, can_delete=True
+    Recipe, Step, form=StepForm, extra=10,an_delete=True
 )
