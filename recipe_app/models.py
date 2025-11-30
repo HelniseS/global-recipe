@@ -3,6 +3,8 @@ from decimal import Decimal
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.text import slugify
+from django.urls import reverse
+
 
 User = get_user_model()
 
@@ -59,6 +61,9 @@ class Recipe(models.Model):
                 i += 1
             self.slug = candidate
         super().save(*args, **kwargs)
+
+        def get_absolute_url(self):
+        return reverse("recipe_app:recipe_detail", args=[self.pk])
 
 
 class Ingredient(models.Model):
