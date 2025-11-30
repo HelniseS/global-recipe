@@ -33,9 +33,9 @@ class StepForm(forms.ModelForm):
         fields = ["order", "text"]
 
 IngredientFormSet = inlineformset_factory(
-    Recipe, Ingredient, form=IngredientForm, extra=10, can_delete=True
+    Recipe, Ingredient, form=IngredientForm, extra=10
 )
 
 StepFormSet = inlineformset_factory(
-    Recipe, Step, form=StepForm, extra=10,an_delete=True
+    Recipe, Step, form=StepForm, extra=10
 )
