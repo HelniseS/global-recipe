@@ -10,6 +10,7 @@
 {% endif %}
 
 <form method="post" enctype="multipart/form-data" class="vstack gap-4">
+
   {% csrf_token %}
 
   {% if form.errors or nutrition_form.errors or ingredient_formset.non_form_errors or step_formset.non_form_errors %}
