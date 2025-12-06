@@ -12,11 +12,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -129,6 +127,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'recipe_app' / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STORAGES = {
+    "default": { "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage" },
+    "staticfiles": { "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage" },
+}
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
