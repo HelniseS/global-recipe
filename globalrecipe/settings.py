@@ -17,11 +17,12 @@ import cloudinary.api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
-
 cloudinary.config(
-    cloudinary_url=os.environ.get("CLOUDINARY_URL")
+    cloud_name="da7qovbwz",
+    api_key="712566922448553",
+    api_secret="C50FUP9p9sgCWXKVZpiKbYpI290"
 )
+
 
 
 
