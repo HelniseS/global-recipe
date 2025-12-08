@@ -17,11 +17,7 @@ import cloudinary.api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-cloudinary.config(
-    cloud_name="da7qovbwz",
-    api_key="712566922448553",
-    api_secret="C50FUP9p9sgCWXKVZpiKbYpI290"
-)
+cloudinary.config(secure=True)
 
 
 
