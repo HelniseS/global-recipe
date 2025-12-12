@@ -1,5 +1,5 @@
 from decimal import Decimal
-
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.text import slugify
@@ -15,7 +15,7 @@ class Tag(models.Model):
     class Meta:
         ordering = ["name"]
 
-    def __str__(self) -> str:
+ def __str__(self) -> str:
         return self.name
 
 
@@ -39,7 +39,7 @@ class Recipe(models.Model):
     cooking_time_min = models.PositiveIntegerField(default=0)
     servings = models.PositiveIntegerField(default=1)
     image = models.ImageField(upload_to="recipe_images/", blank=True, null=True)
-    rating = models.DecimalField(max_digits=2, decimal_places=1)
+    rating = models.DecimalField(max_digits=2, decimal_places=1, default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
     tags = models.ManyToManyField(Tag, blank=True, related_name="recipes")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
