@@ -61,7 +61,7 @@ A full-stack Django web app where users can browse, create, edit, and delete rec
 ---
 
 ## Website Goals and Objectives
-- Provide a reliable CRUD interface backed by a relational database.
+- Provide full CRUD (Create, Read, Update, Delete) functionality for recipes backed by a relational database.
 - Meet accessibility guidelines (semantic HTML, ARIA where appropriate, colour contrast).
 - Use clean project structure, version control, and professional documentation.
 - Deploy to a cloud platform with DEBUG off and secrets protected.
@@ -112,6 +112,7 @@ A full-stack Django web app where users can browse, create, edit, and delete rec
 - Recipes list with pagination and basic search (title/tags).
 - Recipe detail page with ingredients, steps, cooking time, and image.
 - Authenticated users can **create**, **update**, and **delete** their own recipes.
+- Full CRUD for recipes (Create, Read, Update, Delete).
 - Django Admin configured with inlines for quick ingredient/step entry.
 - Flash messages for user feedback (create/update/delete success).
 - 404/500 user-friendly error pages (optional).
@@ -135,6 +136,15 @@ The core entities are **Recipe**, **Ingredient**, and **Step** with `User` as au
 - **Step**
   - `recipe(FK)`, `order`, `instruction` (ordered by `order`)
 
+### Entity Relationship Diagram
+
+- A User can create many Recipes.
+- A Recipe belongs to one User (author).
+- A Recipe has many Ingredients.
+- A Recipe has many Steps.
+- Ingredients and Steps cannot exist without a Recipe.
+
+These relationships are implemented using Django ForeignKey relationships.
 
 ## Technologies Used
 
@@ -143,6 +153,7 @@ The core entities are **Recipe**, **Ingredient**, and **Step** with `User` as au
 
 ### Libraries & Framework
 - Django 5, Bootstrap 5
+- Database: SQLite (development) and PostgreSQL (production)
 
 ### Tools
 - VS Code, Git & GitHub
@@ -159,14 +170,49 @@ The core entities are **Recipe**, **Ingredient**, and **Step** with `User` as au
 
 ### Bugs Fixed
 
+## Version Control
+
+Git was used for version control throughout development.
+The project repository is hosted on GitHub and includes regular commits documenting feature development, bug fixes, and refactoring.
+
 ---
+
 
 ## Deployment
 
-### To deploy the project
-**Option A: Heroku (classic for Django)**
-1. Create a Heroku app.  
-2. Add config vars: `SECRET_KEY`, `DISABLE_COLLECTSTATIC=1` (during first deploy).  
-3. Add `Procfile`:
+The project was deployed to Heroku using PostgreSQL.
+
+### To deploy the project (Heroku)
+1. Create a new Heroku app.
+2. In Heroku Settings → Config Vars, add:
+   - `SECRET_KEY`
+   - `DATABASE_URL` (added automatically if you attach Heroku Postgres)
+   - `CLOUDINARY_URL` (if used)
+3. In your project, ensure you have:
+   - `requirements.txt`
+   - `Procfile`
+4. Push to GitHub and connect the repo to Heroku (Deploy tab), or deploy via CLI.
+5. Run migrations on Heroku:
+   ```bash
+   heroku run python manage.py migrate
+
+
+## Security & Environment Variables
+
+All sensitive data is stored securely using environment variables and is not committed to GitHub.
+
+Environment variables used:
+- `SECRET_KEY`
+- `DATABASE_URL` (production)
+- `CLOUDINARY_URL`
+
+A local `.env` file is used during development and is included in `.gitignore`.
+On deployment, these are set using the hosting platform Config Vars  Heroku.
 
 ## Credits
+### Code, libraries and resources
+- Django Documentation: https://docs.djangoproject.com/
+- Bootstrap Documentation: https://getbootstrap.com/
+
+Any external code snippets (if used) are clearly credited in the code comments above the relevant sections.
+All other code, models, views, templates and styling were written by the project author.
