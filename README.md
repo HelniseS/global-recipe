@@ -1,6 +1,9 @@
 #  Global Recipe
 
-A full-stack Django web app where users can browse, create, edit, and delete recipes. Designed for accessibility, responsive UX, and clean data management.
+GlobalRecipe is a full-stack Django web application that allows users to browse, search, and manage recipes from different cuisines around the world. The project demonstrates full CRUD functionality, user authentication, media handling, and deployment to a live production environment.
+
+The application is designed with usability, accessibility, and performance in mind and has been successfully deployed to Heroku.
+
 
 ---
 
@@ -148,27 +151,41 @@ These relationships are implemented using Django ForeignKey relationships.
 
 ## Technologies Used
 
-### Languages
-- Python 3, HTML5, CSS3, JavaScript (Bootstrap components)
+### Frontend
+- HTML5
+- CSS3
+- Bootstrap
+- JavaScript (minimal)
 
-### Libraries & Framework
-- Django 5, Bootstrap 5
-- Database: SQLite (development) and PostgreSQL (production)
+### Backend
+- Python
+- Django 5
+
+### Database
+- SQLite (local development)
+- PostgreSQL (production)
+
+### Deployment & Services
+- Heroku
+- Cloudinary (production media storage)
+- Gunicorn
 
 ### Tools
-- VS Code, Git & GitHub
-- (Optional) Draw.io / Figma for wireframes
-- (Optional) Heroku/Render for deployment
+- Git & GitHub
+- VS Code
+- Google Lighthouse
 
 ---
 
-## Testing
+
+
 
 ### Feature Testing
 
 ### Accessibility Testing
 
 ### Bugs Fixed
+
 
 ## Version Control
 
@@ -180,7 +197,28 @@ The project repository is hosted on GitHub and includes regular commits document
 
 ## Deployment
 
-The project was deployed to Heroku using PostgreSQL.
+
+The application was deployed using **Heroku** with the following considerations:
+
+- Environment variables used for security (SECRET_KEY, DATABASE_URL, CLOUDINARY_URL)
+- PostgreSQL database configured via Heroku
+- Cloudinary used for media storage in production
+- Static files collected and served correctly
+- DEBUG disabled in production
+
+---
+
+##  Performance & Accessibility
+
+The live application was tested using **Google Lighthouse** on the deployed site.
+
+### Lighthouse Results:
+- **Performance:** 100
+- **Accessibility:** 89
+- **Best Practices:** 74
+- **SEO:** 91
+
+These results demonstrate strong performance optimisation, good accessibility practices, and effective SEO implementation.
 
 ### To deploy the project (Heroku)
 1. Create a new Heroku app.
