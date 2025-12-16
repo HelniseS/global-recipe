@@ -15,7 +15,7 @@ class Tag(models.Model):
     class Meta:
         ordering = ["name"]
 
- def __str__(self) -> str:
+    def __str__(self) -> str:
         return self.name
 
 
@@ -39,7 +39,12 @@ class Recipe(models.Model):
     cooking_time_min = models.PositiveIntegerField(default=0)
     servings = models.PositiveIntegerField(default=1)
     image = models.ImageField(upload_to="recipe_images/", blank=True, null=True)
-    rating = models.DecimalField(max_digits=2, decimal_places=1, default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
+    rating = models.DecimalField(
+        max_digits=2,
+        decimal_places=1,
+        default=0,
+        validators=[MinValueValidator(0), MaxValueValidator(5)],
+    )
     tags = models.ManyToManyField(Tag, blank=True, related_name="recipes")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -51,7 +56,6 @@ class Recipe(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        # Create a unique slug from the title if absent
         if not self.slug:
             base = (slugify(self.title) or "recipe")[:60]
             candidate = base
