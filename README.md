@@ -511,10 +511,115 @@ This summary demonstrates that Global Recipe meets the Project 3 requirement for
 ---
 
 ### Feature Testing
+## Testing
+
+Testing was carried out throughout the development of the Global Recipe application to ensure functionality, usability, accessibility, and security. A combination of **manual testing** and **code validation tools** was used to verify that all features work as expected and meet project requirements.
+
+---
+
+### Manual Testing
+
+All core user journeys were tested manually to ensure correct behaviour under normal use and edge cases.
+
+#### User Authentication
+
+| Test Case | Action | Expected Result | Outcome |
+|----------|--------|----------------|---------|
+| Register account | Submit valid registration form | Account created and user redirected | Pass |
+| Register account | Submit invalid data | Error message displayed | Pass |
+| Login | Enter valid credentials | User logged in successfully | Pass |
+| Login | Enter invalid credentials | Error message displayed | Pass |
+| Logout | Click logout | User logged out and redirected | Pass |
+
+---
+
+#### Recipe Management (CRUD)
+
+| Test Case | Action | Expected Result | Outcome |
+|----------|--------|----------------|---------|
+| View recipes | Visit recipe list | Recipes displayed correctly | Pass |
+| Search recipes | Search by keyword | Relevant results returned | Pass |
+| Add recipe | Submit valid form | Recipe saved and displayed | Pass |
+| Add recipe | Submit incomplete form | Validation errors shown | Pass |
+| Edit recipe | Update owned recipe | Changes saved | Pass |
+| Edit recipe | Attempt to edit another user’s recipe | Access denied | Pass |
+| Delete recipe | Confirm deletion | Recipe removed | Pass |
+| Delete recipe | Cancel deletion | Recipe retained | Pass |
+
+---
+
+#### Navigation and Layout
+
+| Test Case | Action | Expected Result | Outcome |
+|----------|--------|----------------|---------|
+| Navigation links | Click menu items | Correct page loaded | Pass |
+| Responsive layout | Resize browser window | Layout adapts correctly | Pass |
+| Mobile view | Load site on small screen | Content remains usable | Pass |
+
+---
+
+### Code Validation
+
+The following validation tools were used to ensure code quality:
+
+- **HTML Validation**  
+  All templates were checked using the W3C Markup Validation Service. Django template warnings were noted but are expected.
+
+- **CSS Validation**  
+  Custom CSS was validated using the W3C CSS Validator with no major errors.
+
+- **Python Validation**  
+  Code was checked using `flake8`. Minor warnings were addressed where applicable.
+
+---
 
 ### Accessibility Testing
 
+Accessibility testing was performed manually and using automated tools:
+
+- Semantic HTML used throughout the application.
+- All forms include descriptive labels.
+- Buttons and links are clearly distinguishable.
+- Colour contrast checked for readability.
+- Keyboard navigation tested on forms and links.
+
+**Google Lighthouse Results:**
+- Performance: 100
+- Accessibility: 89
+- Best Practices: 74
+- SEO: 91
+
+---
+
+### Browser and Device Testing
+
+The application was tested on the following platforms:
+
+- **Browsers:** Chrome   
+- **Devices:** Mobile, Tablet, Desktop  
+
+The site remained responsive and functional across all tested environments.
+
+---
+
 ### Bugs Fixed
+
+| Issue | Cause | Resolution |
+|-----|------|-----------|
+| Images not displaying in production | Media storage misconfiguration | Implemented Cloudinary |
+| Duplicate recipe slugs | Similar recipe titles | Added unique slug generation |
+| Unauthorized edit access | Missing permission checks | Restricted access to recipe owners |
+| Mobile layout issues | Bootstrap grid spacing | Adjusted layout classes |
+
+---
+
+### Known Issues
+
+- No critical bugs identified at the time of submission.
+- Automated unit tests are limited and could be expanded in future iterations.
+
+---
+
 
 
 ## Version Control
@@ -525,18 +630,60 @@ The project repository is hosted on GitHub and includes regular commits document
 ---
 
 
+
 ## Deployment
 
-
-The application was deployed using **Heroku** with the following considerations:
-
-- Environment variables used for security (SECRET_KEY, DATABASE_URL, CLOUDINARY_URL)
-- PostgreSQL database configured via Heroku
-- Cloudinary used for media storage in production
-- Static files collected and served correctly
-- DEBUG disabled in production
+The Global Recipe application was deployed using **Heroku**. The deployment process ensured that the application runs in a secure, production-ready environment with sensitive data protected using environment variables.
 
 ---
+
+### Heroku Deployment
+
+The following steps were taken to deploy the project to Heroku:
+
+1. Create a new Heroku application.
+2. Navigate to **Settings** and open **Config Vars**.
+3. Add the following environment variables:
+   - `SECRET_KEY`
+   - `DATABASE_URL` (automatically added when Heroku Postgres is attached)
+   - `CLOUDINARY_URL` (for media storage in production)
+4. Attach **Heroku Postgres** as the production database.
+5. Ensure the project includes the following required files:
+   - `requirements.txt`
+   - `Procfile`
+6. Update Django settings:
+   - Set `DEBUG = False`
+   - Add the Heroku app URL to `ALLOWED_HOSTS`
+7. Commit changes and push the project to GitHub.
+8. Connect the GitHub repository to Heroku via the **Deploy** tab or deploy using the Heroku CLI.
+9. Run database migrations:
+   ```bash
+   heroku run python manage.py migrate
+
+
+ ### Forking the Repository
+
+To fork this repository and create your own copy:
+
+1. Navigate to the Global Recipe repository on GitHub.
+2. Click the **Fork** button located in the top-right corner of the page.
+3. Select your GitHub account when prompted.
+4. A copy of the repository will be created in your GitHub account.
+
+Forking allows you to make changes to the project without affecting the original repository.
+ 
+### Creating a Clone
+
+To create a local clone of the Global Recipe repository:
+
+1. Navigate to the Global Recipe repository on GitHub.
+2. Click the **Code** button and copy the HTTPS repository URL.
+3. Open your local terminal or command prompt.
+4. Navigate to the directory where you want the project to be stored.
+5. Run the following command:
+   ```bash
+   git clone <repository-url>
+
 
 ##  Performance & Accessibility
 
@@ -578,9 +725,34 @@ A local `.env` file is used during development and is included in `.gitignore`.
 On deployment, these are set using the hosting platform Config Vars  Heroku.
 
 ## Credits
-### Code, libraries and resources
-- Django Documentation: https://docs.djangoproject.com/
-- Bootstrap Documentation: https://getbootstrap.com/
 
-Any external code snippets (if used) are clearly credited in the code comments above the relevant sections.
-All other code, models, views, templates and styling were written by the project author.
+### Code and Libraries
+- **Django Documentation**  
+  https://docs.djangoproject.com/  
+  Used as the primary reference for models, views, authentication, and ORM usage.
+
+- **Bootstrap Documentation**  
+  https://getbootstrap.com/  
+  Used for responsive layout, grid system, and UI components.
+
+- **Cloudinary Documentation**  
+  https://cloudinary.com/documentation  
+  Referenced for media storage and image handling in production.
+
+---
+
+### Media
+- Recipe images were uploaded by users or sourced from royalty-free image providers for demonstration purposes.
+- No copyrighted images are used without permission.
+
+---
+
+### Tools and Resources
+- **GitHub** for repository hosting and version control.
+- **Heroku** for application deployment.
+- **Google Lighthouse** for performance and accessibility testing.
+- **Visual Studio Code** as the primary development environment.
+
+---
+
+All code, models, views, templates, and styling were written by the project author unless otherwise stated.
