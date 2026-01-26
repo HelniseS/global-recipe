@@ -6,8 +6,8 @@ The application is designed with usability, accessibility, and performance in mi
 
 
 ---
-
 ## Contents
+- [Project Goals](#project-goals)
 - [User Goals](#user-goals)
 - [User Stories](#user-stories)
 - [Website Goals and Objectives](#website-goals-and-objectives)
@@ -17,26 +17,16 @@ The application is designed with usability, accessibility, and performance in mi
   - [Colour Scheme](#colour-scheme)
   - [Media](#media)
   - [Responsiveness](#responsiveness)
+  - [Accessibility Considerations](#accessibility-considerations)
 - [Features](#features)
-  - [Existing Features](#existing-features)
-  - [Future Enhancements](#future-enhancements)
-- [Data Model](#data-model)
-  - [Entity Relationship Diagram](#entity-relationship-diagram)
+- [CRUD Functionality Summary](#crud-functionality-summary)
 - [Technologies Used](#technologies-used)
-  - [Languages](#languages)
-  - [Libraries & Framework](#libraries--framework)
-  - [Tools](#tools)
 - [Testing](#testing)
-  - [Code Validation](#code-validation)
-  - [Feature Testing](#feature-testing)
-  - [Accessibility Testing](#accessibility-testing)
-  - [Bugs Fixed](#bugs-fixed)
 - [Deployment](#deployment)
-  - [To deploy the project](#to-deploy-the-project)
-  - [To fork the project](#to-fork-the-project)
-  - [To clone the project](#to-clone-the-project)
 - [Security & Environment Variables](#security--environment-variables)
+- [Performance & Accessibility](#performance--accessibility)
 - [Credits](#credits)
+
 
 ---
 ## Project Goals
@@ -398,6 +388,30 @@ The Django Admin interface is configured to support efficient content management
 
 ---
 
+## Finished Product
+
+### Home Page
+![Home Page](docs/screenshots/home-page.png)
+
+### Recipe Detail Page
+![Recipe Detail Page](docs/screenshots/recipe-detail-page.png)
+
+### Login Page
+![Login Page](docs/screenshots/login-page.png)
+
+### Register Page
+![Register Page](docs/screenshots/user-registration.png)
+
+### Add Recipe
+![Add Recipe](docs/screenshots/add-recipe.png)
+
+### Edit Recipe
+![Edit Recipe](docs/screenshots/edit-recipe.png)
+
+### Delete Recipe
+![Delete Recipe](docs/screenshots/delete-recipe.png)
+
+
 ## CRUD Functionality Summary
 
 The table below outlines how Create, Read, Update, and Delete (CRUD) operations are implemented across the main features of the Global Recipe application.
@@ -509,13 +523,9 @@ This summary demonstrates that Global Recipe meets the Project 3 requirement for
   Used to test performance, accessibility, best practices, and SEO on the deployed site.
 
 ---
-
-### Feature Testing
 ## Testing
 
 Testing was carried out throughout the development of the Global Recipe application to ensure functionality, usability, accessibility, and security. A combination of **manual testing** and **code validation tools** was used to verify that all features work as expected and meet project requirements.
-
----
 
 ### Manual Testing
 
@@ -583,13 +593,6 @@ Accessibility testing was performed manually and using automated tools:
 - Colour contrast checked for readability.
 - Keyboard navigation tested on forms and links.
 
-**Google Lighthouse Results:**
-- Performance: 100
-- Accessibility: 89
-- Best Practices: 74
-- SEO: 91
-
----
 
 ### Browser and Device Testing
 
@@ -696,21 +699,6 @@ The live application was tested using **Google Lighthouse** on the deployed site
 - **SEO:** 91
 
 These results demonstrate strong performance optimisation, good accessibility practices, and effective SEO implementation.
-
-### To deploy the project (Heroku)
-1. Create a new Heroku app.
-2. In Heroku Settings → Config Vars, add:
-   - `SECRET_KEY`
-   - `DATABASE_URL` (added automatically if you attach Heroku Postgres)
-   - `CLOUDINARY_URL` (if used)
-3. In your project, ensure you have:
-   - `requirements.txt`
-   - `Procfile`
-4. Push to GitHub and connect the repo to Heroku (Deploy tab), or deploy via CLI.
-5. Run migrations on Heroku:
-   ```bash
-   heroku run python manage.py migrate
-
 
 ## Security & Environment Variables
 
