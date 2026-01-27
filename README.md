@@ -19,6 +19,7 @@ The application is designed with usability, accessibility, and performance in mi
   - [Responsiveness](#responsiveness)
   - [Accessibility Considerations](#accessibility-considerations)
 - [Features](#features)
+- [Finished Product](#finished-product)
 - [CRUD Functionality Summary](#crud-functionality-summary)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
