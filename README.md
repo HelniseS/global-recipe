@@ -19,6 +19,7 @@ The application is designed with usability, accessibility, and performance in mi
   - [Responsiveness](#responsiveness)
   - [Accessibility Considerations](#accessibility-considerations)
 - [Features](#features)
+- [Database Schema](#database-schema)
 - [Finished Product](#finished-product)
 - [CRUD Functionality Summary](#crud-functionality-summary)
 - [Technologies Used](#technologies-used)
@@ -388,6 +389,23 @@ The Django Admin interface is configured to support efficient content management
 - Enhance overall user experience.
 
 ---
+## Database Schema
+
+The diagram below represents the relational database structure used in the Global Recipe application.
+
+It shows the relationships between users, recipes, ingredients, steps, nutrition data, and tags.  
+The schema was designed to support full CRUD functionality while maintaining data integrity and clear ownership of user-generated content.
+
+![Database Schema](docs/database/database-schema.png)
+
+### Schema Overview
+
+- A **User** can create multiple **Recipes** (one-to-many).
+- Each **Recipe** can have multiple **Ingredients** and **Steps** (one-to-many).
+- Each **Recipe** has one associated **Nutrition** record (one-to-one).
+- **Tags** are linked to recipes using a many-to-many relationship via the `recipe_tags` table.
+- Foreign key relationships enforce data integrity and ownership.
+
 
 ## Finished Product
 
@@ -571,16 +589,21 @@ All core user journeys were tested manually to ensure correct behaviour under no
 
 ### Code Validation
 
-The following validation tools were used to ensure code quality:
+The following tools were used to validate the codebase and ensure compliance with web standards and best practices.
 
-- **HTML Validation**  
-  All templates were checked using the W3C Markup Validation Service. Django template warnings were noted but are expected.
+#### HTML Validation
+- All HTML templates were validated using the W3C Markup Validation Service.
+- Django template syntax warnings were noted and are expected.
+- No critical HTML errors were found.
 
-- **CSS Validation**  
-  Custom CSS was validated using the W3C CSS Validator with no major errors.
+#### CSS Validation
+- Custom CSS was validated using the W3C CSS Validation Service.
+- No errors were detected.
 
-- **Python Validation**  
-  Code was checked using `flake8`. Minor warnings were addressed where applicable.
+#### Python Validation
+- Python code was checked using `flake8`.
+- Minor line length warnings were addressed where possible.
+- No critical issues were found.
 
 ---
 
