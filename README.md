@@ -4,6 +4,10 @@ GlobalRecipe is a full-stack Django web application that allows users to browse,
 
 The application is designed with usability, accessibility, and performance in mind and has been successfully deployed to Heroku.
 
+This project was developed as part of the Code Institute Full Stack Software Development course (Project 3).
+
+Global Recipe demonstrates how Django can be used to build a secure, data-driven web application with user authentication, relational database models, and full CRUD functionality.
+
 
 ---
 ## Contents
@@ -181,6 +185,7 @@ These design choices help ensure that Global Recipe is accessible, intuitive, an
 
 
 ## Features
+Each feature listed below directly supports one or more of the user stories defined earlier, ensuring that the application meets real user needs and project requirements.
 
 Global Recipe is designed to provide a clear, intuitive, and secure experience for users who want to browse, create, and manage recipes. The application implements full CRUD functionality, user authentication, search and filtering, and responsive design.
 
@@ -400,12 +405,11 @@ The schema was designed to support full CRUD functionality while maintaining dat
 
 ### Schema Overview
 
-- A **User** can create multiple **Recipes** (one-to-many).
-- Each **Recipe** can have multiple **Ingredients** and **Steps** (one-to-many).
-- Each **Recipe** has one associated **Nutrition** record (one-to-one).
-- **Tags** are linked to recipes using a many-to-many relationship via the `recipe_tags` table.
-- Foreign key relationships enforce data integrity and ownership.
-
+- A User can create multiple Recipes (one-to-many).
+- Each Recipe can have multiple Ingredients and Steps (one-to-many).
+- Each Recipe has one Nutrition record (one-to-one).
+- Tags are linked to recipes using a many-to-many relationship via the recipe_tags table.
+- Foreign key constraints enforce ownership and data integrity.
 
 ## Finished Product
 
@@ -547,6 +551,7 @@ This summary demonstrates that Global Recipe meets the Project 3 requirement for
 Testing was carried out throughout the development of the Global Recipe application to ensure functionality, usability, accessibility, and security. A combination of **manual testing** and **code validation tools** was used to verify that all features work as expected and meet project requirements.
 
 ### Manual Testing
+Manual testing was prioritised to reflect real user behaviour and to ensure that all authentication flows and CRUD operations function correctly.
 
 All core user journeys were tested manually to ensure correct behaviour under normal use and edge cases.
 
@@ -589,7 +594,8 @@ All core user journeys were tested manually to ensure correct behaviour under no
 
 ### Code Validation
 
-The following tools were used to validate the codebase and ensure compliance with web standards and best practices.
+Validation tools were used to ensure compliance with web standards and best practices throughout development.
+
 
 #### HTML Validation
 - All HTML templates were validated using the W3C Markup Validation Service.
@@ -600,10 +606,11 @@ The following tools were used to validate the codebase and ensure compliance wit
 - Custom CSS was validated using the W3C CSS Validation Service.
 - No errors were detected.
 
-#### Python Validation
-- Python code was checked using `flake8`.
-- Minor line length warnings were addressed where possible.
-- No critical issues were found.
+#### JavaScript Validation
+
+- No custom JavaScript files were written for this project.
+- Interactive functionality (such as navigation and layout behaviour) is provided by Bootstrap via CDN.
+- As no custom JavaScript code exists, JSLint validation was not required.
 
 ---
 
@@ -662,7 +669,26 @@ The project repository is hosted on GitHub and includes regular commits document
 
 The Global Recipe application was deployed using **Heroku**. The deployment process ensured that the application runs in a secure, production-ready environment with sensitive data protected using environment variables.
 
----
+
+### Local Deployment (Run Locally)
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+2. Navigate into the project directory:
+cd global-recipe
+3. Create and activate a virtual environment:
+python -m venv venv
+source venv/bin/activate
+4. Install dependencies:
+pip install -r requirements.txt
+5. Create a .env file and add the required environment variables.
+6. Run database migrations:
+python manage.py migrate
+7. Start the development server: 
+python manage.py runserver
+
+
 
 ### Heroku Deployment
 
@@ -712,6 +738,18 @@ To create a local clone of the Global Recipe repository:
    git clone <repository-url>
 
 
+
+## Security & Environment Variables
+
+- DEBUG is set to False in production to prevent the exposure of sensitive information.
+- Secret keys and credentials are stored securely using environment variables and are never committed to GitHub.
+- Django’s built-in authentication system is used for secure user registration, login, and logout.
+- Passwords are hashed automatically by Django before being stored in the database.
+- Only authenticated users can create new recipes.
+- Users can only edit or delete recipes that they have created, enforcing data ownership.
+- Access to administrative functionality is restricted to authorised superusers through Django Admin.
+- Django’s built-in CSRF protection is enabled on all forms to prevent cross-site request forgery attacks.
+
 ##  Performance & Accessibility
 
 The live application was tested using **Google Lighthouse** on the deployed site.
@@ -724,17 +762,6 @@ The live application was tested using **Google Lighthouse** on the deployed site
 
 These results demonstrate strong performance optimisation, good accessibility practices, and effective SEO implementation.
 
-## Security & Environment Variables
-
-All sensitive data is stored securely using environment variables and is not committed to GitHub.
-
-Environment variables used:
-- `SECRET_KEY`
-- `DATABASE_URL` (production)
-- `CLOUDINARY_URL`
-
-A local `.env` file is used during development and is included in `.gitignore`.
-On deployment, these are set using the hosting platform Config Vars  Heroku.
 
 ## Credits
 
@@ -764,6 +791,7 @@ On deployment, these are set using the hosting platform Config Vars  Heroku.
 - **Heroku** for application deployment.
 - **Google Lighthouse** for performance and accessibility testing.
 - **Visual Studio Code** as the primary development environment.
+- **Balsamiq** Used to design low-fidelity wireframes during the planning phase of the project.
 
 ---
 
